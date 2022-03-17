@@ -1,5 +1,6 @@
 {
-	"name": "cintelligence",
+    "publisher": "cintelligence",
+    "name": "cintelligence",
 	"displayName": "CIntelligence",
 	"description": "",
 	"version": "0.0.1",
@@ -10,6 +11,7 @@
 		"Other"
 	],
 	"activationEvents": [
+        "onLanguage:yaml",
 		"onCommand:cintelligence.helloWorld"
 	],
 	"main": "./out/extension.js",
