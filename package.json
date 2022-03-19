@@ -1,6 +1,6 @@
 {
-    "publisher": "cintelligence",
-    "name": "cintelligence",
+	"publisher": "cintelligence",
+	"name": "cintelligence",
 	"displayName": "CIntelligence",
 	"description": "",
 	"version": "0.0.1",
@@ -11,7 +11,7 @@
 		"Other"
 	],
 	"activationEvents": [
-        "onLanguage:yaml",
+		"onLanguage:yaml",
 		"onCommand:cintelligence.helloWorld"
 	],
 	"main": "./out/extension.js",
@@ -29,8 +29,8 @@
 		"watch": "tsc -watch -p ./",
 		"pretest": "yarn run compile && yarn run lint",
 		"lint": "eslint src --ext ts",
-        "test": "yarn run test:unit && yarn run test:integration",
-        "test:unit": "mocha --config ./.mocharc.unit.yaml --exit",
+		"test": "yarn run test:unit && yarn run test:integration",
+		"test:unit": "mocha --config ./.mocharc.unit.yaml --exit",
 		"test:integration": "node ./out/test/integration/runTest.js"
 	},
 	"devDependencies": {
