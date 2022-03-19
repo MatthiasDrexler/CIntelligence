@@ -29,7 +29,9 @@
 		"watch": "tsc -watch -p ./",
 		"pretest": "yarn run compile && yarn run lint",
 		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/integration/runTest.js"
+        "test": "yarn run test:unit && yarn run test:integration",
+        "test:unit": "mocha --config ./.mocharc.unit.yaml --exit",
+		"test:integration": "node ./out/test/integration/runTest.js"
 	},
 	"devDependencies": {
 		"@types/chai": "^4.3.0",

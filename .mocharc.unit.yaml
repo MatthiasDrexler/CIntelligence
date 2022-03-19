@@ -1,0 +1,6 @@
+package: "./package.json"
+ui: bdd
+spec:
+    - "./out/test/unit/**/*.js"
+recursive: true
+reporter: spec
