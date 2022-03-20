@@ -1,0 +1,59 @@
+name: Code - Quality Gate
+
+on:
+  push:
+    branches:
+      - main
+      - feature/*
+    paths:
+      - src/**
+      - .github/workflows/code.quality-gate.yml
+      - .editorconfig
+      - .eslintrc.json
+      - .mocharc.*.yaml
+      - .yarnrc
+      - package.json
+      - tsconfig.json
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - run: yarn install
+      - run: yarn run lint
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - run: yarn install
+      - run: yarn run compile
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - run: yarn install
+      - run: yarn compile
+      - run: yarn run test:unit
+      - run: xvfb-run --auto-servernum yarn run test:integration

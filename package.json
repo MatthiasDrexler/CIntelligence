@@ -27,7 +27,7 @@
 		"vscode:prepublish": "yarn run compile",
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
-		"pretest": "yarn run compile && yarn run lint",
+		"pretest": "yarn run lint && yarn run compile",
 		"lint": "eslint src --ext ts",
 		"test": "yarn run test:unit && yarn run test:integration",
 		"test:unit": "mocha --config ./.mocharc.unit.yaml --exit",
