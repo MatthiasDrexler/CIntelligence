@@ -1,8 +1,8 @@
 import { expect } from 'chai';
 import * as path from 'path';
 import { YAMLMap } from 'yaml/types';
-import ResourceLoader from '../../../../resources/resourceLoader';
-import YamlParser from '../../../../../domain/yaml/yamlParser';
+import ResourceLoader from '../../../../resources/resource-loader';
+import YamlParser from '../../../../../domain/yaml/yaml-parser';
 
 describe("YamlParser", () => {
     it("parses empty yaml file", () => {
