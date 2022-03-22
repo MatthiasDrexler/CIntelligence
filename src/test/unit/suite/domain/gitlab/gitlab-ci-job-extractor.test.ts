@@ -12,7 +12,7 @@ describe("GitlabCiJobExtractor", () => {
         const extractedJobs = new GitlabCiJobExtractor().extract([yamlDocument]);
 
         expect(extractedJobs).to.have.length(0);
-    })
+    });
 
     it("should return empty list for scalar yaml file", () => {
         const resourceFile = path.join("yaml", "scalar.yml");
@@ -21,7 +21,7 @@ describe("GitlabCiJobExtractor", () => {
         const extractedJobs = new GitlabCiJobExtractor().extract([yamlDocument]);
 
         expect(extractedJobs).to.have.length(0);
-    })
+    });
 
     it("should return empty list for list yaml file", () => {
         const resourceFile = path.join("yaml", "list.yml");
@@ -30,7 +30,7 @@ describe("GitlabCiJobExtractor", () => {
         const extractedJobs = new GitlabCiJobExtractor().extract([yamlDocument]);
 
         expect(extractedJobs).to.have.length(0);
-    })
+    });
 
     it("should return job-1 and job-2 for gitlab-ci.twoJobs.yml", () => {
         const resourceFile = path.join("yaml", "gitlab", "gitlab-ci.twoJobs.yml");
@@ -40,5 +40,15 @@ describe("GitlabCiJobExtractor", () => {
 
         expect(extractedJobs).to.have.length(2);
         expect(extractedJobs.map(it => it.name)).to.contain("job-1").and.to.contain("job-2");
-    })
-})
+    });
+
+    it("should return job-1 and omit default for gitlab-ci.jobWithDefault.yml", () => {
+        const resourceFile = path.join("yaml", "gitlab", "gitlab-ci.jobWithDefault.yml");
+        const yamlDocument = new ResourceParser().parse(resourceFile);
+
+        const extractedJobs = new GitlabCiJobExtractor().extract([yamlDocument]);
+
+        expect(extractedJobs).to.have.length(1);
+        expect(extractedJobs.map(it => it.name)).to.contain("job-1").and.not.to.contain("default");
+    });
+});

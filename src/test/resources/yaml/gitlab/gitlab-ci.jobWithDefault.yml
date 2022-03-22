@@ -1,0 +1,8 @@
+default:
+  tag:
+    - default-tag
+
+job-1:
+  stage: build
+  script:
+    - yarn compile
