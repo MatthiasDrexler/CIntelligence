@@ -39,6 +39,6 @@ describe("GitlabCiJobExtractor", () => {
         const extractedJobs = new GitlabCiJobExtractor().extract([yamlDocument]);
 
         expect(extractedJobs).to.have.length(2);
-
+        expect(extractedJobs.map(it => it.name)).to.contain("job-1").and.to.contain("job-2");
     })
 })
