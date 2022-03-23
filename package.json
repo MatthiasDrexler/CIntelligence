@@ -11,16 +11,11 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onLanguage:yaml",
-		"onCommand:cintelligence.helloWorld"
+        "workspaceContains:.gitlab-ci.yml"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
-			{
-				"command": "cintelligence.helloWorld",
-				"title": "Hello World"
-			}
 		]
 	},
 	"scripts": {

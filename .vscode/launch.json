@@ -11,7 +11,8 @@
 			"request": "launch",
 			"args": [
 				"--extensionDevelopmentPath=${workspaceFolder}",
-                "${workspaceFolder}/src/test"
+                "--new-window",
+                "${workspaceFolder}/src/test/resources/workspace"
 			],
 			"outFiles": [
 				"${workspaceFolder}/out/**/*.js"
@@ -26,7 +27,7 @@
 				"--extensionDevelopmentPath=${workspaceFolder}",
 				"--extensionTestsPath=${workspaceFolder}/out/test/integration/suite/index",
                 "--new-window",
-                "${workspaceFolder}/src/test"
+                "${workspaceFolder}/src/test/resources/workspace"
 			],
 			"outFiles": [
 				"${workspaceFolder}/out/test/**/*.js"

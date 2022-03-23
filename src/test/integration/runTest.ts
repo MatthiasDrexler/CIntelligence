@@ -9,7 +9,7 @@ async function main() {
 
         const version = 'insiders';
 
-        const testWorkspace = path.resolve(extensionDevelopmentPath, 'src', 'test');
+        const testWorkspace = path.resolve(extensionDevelopmentPath, 'src', 'test', 'resources', 'workspace');
         const launchArgs = ["--new-window", testWorkspace];
 
 		// Download VS Code, unzip it and run the integration test
