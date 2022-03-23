@@ -5,7 +5,7 @@ import ResourceLoader from '../../../../resources/resource-loader';
 import YamlParser from '../../../../../domain/yaml/yaml-parser';
 
 describe("YamlParser", () => {
-    it("parses empty yaml file", () => {
+    it("parses empty yaml file", function () {
         const resourceFile = path.join("yaml", "empty.yml");
         const yamlContent = new ResourceLoader().load(resourceFile);
 
@@ -14,7 +14,7 @@ describe("YamlParser", () => {
         expect(parsedYaml.contents).to.be.null;
     });
 
-    it("parses gitlab-ci yaml file with two jobs", () => {
+    it("parses gitlab-ci yaml file with two jobs", function () {
         const resourceFile = path.join("yaml", "gitlab", "gitlab-ci.twoJobs.yml");
         const yamlContent = new ResourceLoader().load(resourceFile);
 

@@ -5,7 +5,7 @@ import { expect } from 'chai';
 
 describe("GitlabCiJobExtractor", () => {
 
-    it("should return empty list for empty yaml file", () => {
+    it("should return empty list for empty yaml file", function () {
         const resourceFile = path.join("yaml", "empty.yml");
         const yamlDocument = new ResourceParser().parse(resourceFile);
 
@@ -14,7 +14,7 @@ describe("GitlabCiJobExtractor", () => {
         expect(extractedJobs).to.have.length(0);
     });
 
-    it("should return empty list for scalar yaml file", () => {
+    it("should return empty list for scalar yaml file", function () {
         const resourceFile = path.join("yaml", "scalar.yml");
         const yamlDocument = new ResourceParser().parse(resourceFile);
 
@@ -23,7 +23,7 @@ describe("GitlabCiJobExtractor", () => {
         expect(extractedJobs).to.have.length(0);
     });
 
-    it("should return empty list for list yaml file", () => {
+    it("should return empty list for list yaml file", function () {
         const resourceFile = path.join("yaml", "list.yml");
         const yamlDocument = new ResourceParser().parse(resourceFile);
 
@@ -32,7 +32,7 @@ describe("GitlabCiJobExtractor", () => {
         expect(extractedJobs).to.have.length(0);
     });
 
-    it("should return job-1 and job-2 for gitlab-ci.twoJobs.yml", () => {
+    it("should return job-1 and job-2 for gitlab-ci.twoJobs.yml", function () {
         const resourceFile = path.join("yaml", "gitlab", "gitlab-ci.twoJobs.yml");
         const yamlDocument = new ResourceParser().parse(resourceFile);
 
@@ -42,7 +42,7 @@ describe("GitlabCiJobExtractor", () => {
         expect(extractedJobs.map(it => it.name)).to.contain("job-1").and.to.contain("job-2");
     });
 
-    it("should return job-1 and omit default for gitlab-ci.jobWithDefault.yml", () => {
+    it("should return job-1 and omit default for gitlab-ci.jobWithDefault.yml", function () {
         const resourceFile = path.join("yaml", "gitlab", "gitlab-ci.jobWithDefault.yml");
         const yamlDocument = new ResourceParser().parse(resourceFile);
 

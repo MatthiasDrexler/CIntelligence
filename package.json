@@ -20,6 +20,7 @@
 	},
 	"scripts": {
         "lint": "eslint src --ext ts",
+        "lint:fix": "yarn run lint --fix",
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
 		"pretest": "yarn run lint && yarn run compile",
