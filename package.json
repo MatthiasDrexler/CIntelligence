@@ -19,14 +19,14 @@
 		]
 	},
 	"scripts": {
-		"vscode:prepublish": "yarn run compile",
+        "lint": "eslint src --ext ts",
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
 		"pretest": "yarn run lint && yarn run compile",
-		"lint": "eslint src --ext ts",
 		"test": "yarn run test:unit && yarn run test:integration",
 		"test:unit": "mocha --config ./.mocharc.unit.yaml --exit",
-		"test:integration": "node ./out/test/integration/runTest.js"
+		"test:integration": "node ./out/test/integration/runTest.js",
+		"vscode:prepublish": "yarn run compile"
 	},
 	"devDependencies": {
 		"@types/chai": "^4.3.0",
