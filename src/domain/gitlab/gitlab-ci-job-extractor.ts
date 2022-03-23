@@ -4,6 +4,7 @@ import CiJob from '../ci-job';
 import { CiJobExtractor } from '../ci-job-extractor';
 
 export default class GitlabCiJobExtractor implements CiJobExtractor {
+    private static readonly noExtractedJobs = [];
     private static readonly globalKeywords = new Set()
         .add("stages")
         .add("default")
@@ -16,13 +17,13 @@ export default class GitlabCiJobExtractor implements CiJobExtractor {
     }
 
     private extractFromDocument(document: yaml.Document.Parsed): CiJob[] {
-        if (document === null || document.contents === null) {
-            return [];
+        if (!document || !document.contents) {
+            return GitlabCiJobExtractor.noExtractedJobs;
         }
 
         const content = document.contents;
         if (content.type !== Type.MAP) {
-            return [];
+            return GitlabCiJobExtractor.noExtractedJobs;
         }
 
         return content.items
